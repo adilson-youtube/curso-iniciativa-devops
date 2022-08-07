@@ -1,0 +1,22 @@
+COMANDOS DO DOCKER 
+
+Criar container e volume, associar um volume a uma pasta local do host(Computador)
+docker run -d --restart allways -p 9090:9090 -v ${pwd}/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+
+docker run --name Xampp -p 8080:22 -p 80:80 -d -v ${pwd}:/www tomsik68/xampp
+
+
+Criar um servidor MySQL
+docker network create -d bridge redeBD
+docker volume create mysql_data
+docker run --restart always --name mysql --net redeBD -p 3306:3306 -e MYSQL_ROOT_PASSWORD=adilson -v mysql_data:/var/lib/mysql -d mysql:8 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+
+docker network create -d bridge nome_da_rede
+docker volume create nome_do_volume
+docker run --restart always --name nome_do_container --net nome_da_rede_criada_anteriormente -p porta_local:porta_container -e MYSQL_ROOT_PASSWORD=sua_password 
+-v nome_do_volume_criado_anteriormente:caminho_no_container_onde_vai_ser_mapiado -d nome_da_image:tag_ou_versao --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+
+
+docker build -t ubuntu-curl .

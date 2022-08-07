@@ -1,0 +1,49 @@
+k3d cluster create meucluster
+
+k3d cluster create meucluster --servers 3 --agents 3
+
+k3d cluster ls
+
+kubectl get nodes
+
+kubectl api-resources
+
+kubectl api-resources | findstr pod
+
+kubectl apply -f pod.yaml
+
+kubectl get pods
+
+kubectl get pods -o wide
+
+kubectl describe pod meupod
+
+kubectl port-forward pod/meupod 8080:80
+
+kubectl delete pods meupod
+
+kubectl get pods -l app=green
+
+kubectl apply -f replicaset.yaml
+
+kubectl get replicaset
+
+kubectl delete -f replicaset.yaml
+
+kubectl apply -f deployment.yaml
+
+kubectl get deploy
+
+kubectl get replicaset
+
+kubectl rollout history deployment meudeployment
+
+kubectl rollout undo deployment meudeployment
+
+kubectl port-forward pod/meudeployment-b9548cb65-7kg99 8080:80
+
+kubectl get services
+
+k3d cluster create meucluster --servers 3 --agents 3 -p "30000:30000@loadbalancer"
+
+kubectl get all
